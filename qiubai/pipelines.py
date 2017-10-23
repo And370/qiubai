@@ -13,10 +13,10 @@ from scrapy import Request
 
 class QiubaiImagePipeline(ImagesPipeline):
     def get_media_requests(self,item,info):
-        print('\n\n\n\n\n本————大————王————开始请求了!!!!!!!!!!!!!!!!!\n\n\n\n\n')
+        print('\n\n\n\n\n开始请求了!!!!!!!!!!!!!!!!!\n\n\n\n\n')
         for image_url in item['image_urls']:
             yield Request('http:'+image_url)
-        print('\n\n\n\n\n本————大————王————开始存图了!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n\n')
+        print('\n\n\n\n\n开始存图了!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n\n')
         
     def item_completed(self,results,item,info):
         image_paths=[x['path'] for ok,x in results if ok]
